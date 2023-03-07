@@ -1,6 +1,11 @@
 name: Commit cheat
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    schedule:
+      - cron: "* * * * *"
 
 jobs:
   auto_commit:
