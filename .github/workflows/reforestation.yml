@@ -15,10 +15,9 @@ jobs:
     steps:
       - name: Set global directory
         run: git config --global --add safe.directory /github/workspace
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-          fetch-depth: 1
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Update file
         run: |
