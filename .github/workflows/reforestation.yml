@@ -5,13 +5,16 @@ on:
     branches:
       - master
     schedule:
-      - cron: "0 1/4 * * *"
+      - cron: "* * * * *"
 
 jobs:
   auto_commit:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set global directory
+        run: git config --global --add safe.directory /github/workspace
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
