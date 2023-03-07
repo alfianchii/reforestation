@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - master
-    schedule:
-      - cron: "* * * * *"
+
+  schedule:
+    - cron: "* * * * *"
 
 jobs:
   auto_commit:
@@ -14,9 +15,7 @@ jobs:
     steps:
       - name: Set global directory
         run: git config --global --add safe.directory /github/workspace
-
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           persist-credentials: false
           fetch-depth: 1
