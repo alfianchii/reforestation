@@ -7,23 +7,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      
-    - name: Update file
-      run: |
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update file
+        run: |
           cat > LAST_UPDATED
           d=`date '+%Y-%m-%dT%H:%M:%SZ'`
           echo $d > LAST_UPDATED
-          
-    - name: Commit changes
-      run: |
-        git config --global user.name "alfianchii"
-        git config --global user.email "pianaee379@gmail.com"
-        git add .
-        git commit -m "There was nothing here."
-        
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "alfianchii"
+          git config --global user.email "pianaee379@gmail.com"
+          git add .
+          git commit -m "There was nothing here."
+
+      - name: Push changes
+        uses: ad-m/github-push-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
