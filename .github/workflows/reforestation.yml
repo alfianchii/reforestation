@@ -5,7 +5,7 @@ on:
     branches:
       - master
     schedule:
-      - cron: "* * * * *"
+      - cron: "0 1/4 * * *"
 
 jobs:
   auto_commit:
