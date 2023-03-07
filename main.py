@@ -1,8 +1,20 @@
 import os
+import time
+import urllib.request
 from datetime import datetime, timezone, timedelta
 
 def makeCommits(days: int) -> int:
     if days < 1:
+        while True:
+            # Check if internet connectivity is available
+            try:
+                urllib.request.urlopen('http://www.google.com')
+                break
+            except:
+                timeConnect = 10
+                print(f'Internet connection not available. Retrying in {timeConnect} seconds...')
+                time.sleep(timeConnect)
+
         os.system('git push')
         return 0
     else:
